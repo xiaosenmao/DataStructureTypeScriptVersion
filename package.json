@@ -1,13 +1,12 @@
 {
   "name": "ts-code",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Learn data structure",
   "scripts": {
     "build": "webpack"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["data", "structure", "typescript"],
+  "author": "xiaosenmao",
   "license": "ISC",
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
