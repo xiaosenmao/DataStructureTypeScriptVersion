@@ -91,6 +91,27 @@ var Solution = /** @class */ (function () {
 }());
 var so = new Solution();
 console.log('res: ->>>', so.isValid('(){}[]{()[]}'));
+// 了演示如何用栈实现递归
+// 阶乘
+function factorial(n) {
+    if (n === 0) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+// 使用栈来模拟阶乘
+function fact(n) {
+    var stack = new Stack();
+    while (n > 1) {
+        stack.push(n);
+        n--;
+    }
+    var result = 1;
+    while (!stack.isEmpty()) {
+        result = result * stack.pop();
+    }
+    return result;
+}
 
 
 /***/ })

@@ -1,39 +1,39 @@
 interface Queue<E> {
-    getSize(): number;
-    isEmpty(): boolean;
-    enQueue(e: E): void;
-    deQueue(): E;
-    getFront(): E;
-    clear(): void;
+	getSize(): number;
+	isEmpty(): boolean;
+	enQueue(e: E): void;
+	deQueue(): E;
+	getFront(): E;
+	clear(): void;
 }
 
 class Queue<E> implements Queue<E> {
-    
-    private queue: Array<E> = new Array();
 
-    getSize(): number {
-        return this.queue.length;
-    }
+	private queue: Array<E> = new Array();
 
-    isEmpty(): boolean {
-        return this.queue.length === 0;
-    }
+	getSize(): number {
+		return this.queue.length;
+	}
 
-    enQueue(e: E): void {
-        this.queue.push(e);
-    }
+	isEmpty(): boolean {
+		return this.queue.length === 0;
+	}
 
-    deQueue(): E {
-        return this.queue.shift();
-    }
+	enQueue(e: E): void {
+		this.queue.push(e);
+	}
 
-    getFront(): E {
-        return this.queue[0];
-    }
+	deQueue(): E {
+		return this.queue.shift();
+	}
 
-    clear(): void {
-        this.queue = [];
-    }
+	getFront(): E {
+		return this.queue[0];
+	}
+
+	clear(): void {
+		this.queue = [];
+	}
 }
 
 const q1: Queue<number> = new Queue();

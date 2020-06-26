@@ -1,34 +1,34 @@
 
 export class Stack<T> {
-    private items: Array<T> = [];
+	private items: Array<T> = [];
 
-    push(e: T): void  {
-        this.items.push(e);
-    }
+	push(e: T): void  {
+		this.items.push(e);
+	}
 
-    pop(): T {
-        return this.items.pop();
-    }
+	pop(): T {
+		return this.items.pop();
+	}
 
-    peek(): T {
-        return this.items[this.items.length - 1];
-    }
+	peek(): T {
+		return this.items[this.items.length - 1];
+	}
 
-    isEmpty(): boolean {
-        return this.items.length === 0;
-    }
+	isEmpty(): boolean {
+		return this.items.length === 0;
+	}
 
-    size(): number {
-        return this.items.length
-    }
+	size(): number {
+		return this.items.length
+	}
 
-    clear(): void {
-        this.items = [];
-    }
+	clear(): void {
+		this.items = [];
+	}
 
-    print(): void {
-        console.log(this.items.toString());
-    }
+	print(): void {
+		console.log(this.items.toString());
+	}
 }
 
 const s = new Stack<number>();
@@ -52,35 +52,63 @@ s.print();
  */
 
  class Solution {
-    private matchMap = {
-        ')': '(',
-        ']': '[',
-        '}': '{'
-    }
+	private matchMap = {
+			')': '(',
+			']': '[',
+			'}': '{'
+	}
 
-    private leftChar = ['(', '[', '{'];
-    
-    public isValid(s: string): boolean {
-        const stack = new Stack<string>();
-        for (let i = 0; i < s.length; i++) {
-            const temp = s[i];
-            if (this.leftChar.includes(temp)) {
-                stack.push(temp);
-            } else {
-                if (stack.isEmpty()) {
-                    return false;
-                } else {
-                    const topChar = stack.pop();
-                    if (this.matchMap[temp] !== topChar) {
-                        return false;
-                    }
-                }
-            }
-        }
+	private leftChar = ['(', '[', '{'];
 
-        return stack.isEmpty();
-     }
- }
+	public isValid(s: string): boolean {
+		const stack = new Stack<string>();
+		for (let i = 0; i < s.length; i++) {
+			const temp = s[i];
+			if (this.leftChar.includes(temp)) {
+				stack.push(temp);
+			} else {
+				if (stack.isEmpty()) {
+					return false;
+				} else {
+					const topChar = stack.pop();
+					if (this.matchMap[temp] !== topChar) {
+						return false;
+					}
+				}
+			}
+		}
+
+		return stack.isEmpty();
+	}
+}
 
 const so = new Solution();
 console.log('res: ->>>',  so.isValid('(){}[]{()[]}'));
+
+// 了演示如何用栈实现递归
+
+// 阶乘
+function factorial(n) {
+	if (n === 0) {
+		return 1;
+	}
+
+	return n * factorial(n - 1);
+}
+
+// 使用栈来模拟阶乘
+function fact(n) {
+	const stack = new Stack<number>();
+
+	while (n > 1) {
+		stack.push(n);
+		n--;
+	}
+
+	let result = 1;
+	while (!stack.isEmpty()) {
+		result = result * stack.pop();
+	}
+
+	return result;
+}

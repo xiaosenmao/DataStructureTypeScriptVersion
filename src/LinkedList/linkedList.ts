@@ -1,119 +1,110 @@
-
-class DataNode<E> {
-    data: E;
-    next: DataNode<E>;
-
-    constructor(data: E = null, next: DataNode<E> = null) {
-        this.data = data;
-        this.next = next;
-    }
-}
+import DataNode from './DataNode';
 
 class LinkedList<E> {
-    head: DataNode<E>;
+	head: DataNode<E>;
     size: number;
 
-    constructor() {
-        this.head = null;
-        this.size = 0;
-    }
+	constructor() {
+		this.head = null;
+		this.size = 0;
+	}
 
-    getSize(): number {
-        return this.size;
-    }
+	getSize(): number {
+		return this.size;
+	}
 
-    isEmpty(): boolean {
-        return this.size === 0;
-    }
+	isEmpty(): boolean {
+		return this.size === 0;
+	}
 
-    // O(1)
-    addFirst(e: E): void {
-        let prev = this.head;
-        if (!prev) {
-            this.head = new DataNode(e);
-            this.size++;
-        } else {
-            // const dataNode = new DataNode(e);
-            // dataNode.next = prev;
-            // this.head = dataNode;
+	// O(1)
+	addFirst(e: E): void {
+		let prev = this.head;
+		if (!prev) {
+			this.head = new DataNode(e);
+			this.size++;
+		} else {
+			// const dataNode = new DataNode(e);
+			// dataNode.next = prev;
+			// this.head = dataNode;
 
-            this.head = new DataNode(e, prev);
-            this.size++;
-        }
-    }
+			this.head = new DataNode(e, prev);
+			this.size++;
+		}
+	}
 
-    // O(n)
-    addLast(e: E): void {
-        let current = this.head;
-        if (!current) {
-            this.head = new DataNode(e);
-            this.size++;
-        } else {
-            while (current.next) {
-                current = current.next;
-            }
+	// O(n)
+	addLast(e: E): void {
+		let current = this.head;
+		if (!current) {
+			this.head = new DataNode(e);
+			this.size++;
+		} else {
+			while (current.next) {
+				current = current.next;
+			}
 
-            current.next = new DataNode(e);
-            this.size++;
-        }
-    }
+			current.next = new DataNode(e);
+			this.size++;
+		}
+	}
 
     // O(n/2) ~= O(n)
     insert(index: number, e: E): void {
-        if (index < 0 || index > this.size) {
-            throw new Error('Insert failed. Illegal index!');
-        }
+			if (index < 0 || index > this.size) {
+				throw new Error('Insert failed. Illegal index!');
+			}
 
-        let prev = this.head;
-        if (!prev) {
-            this.head = new DataNode(e);
-            this.size++;
-        } else {
-            let i = 0;
-            while (i < index) {
-                prev = prev.next;
-                i++;
-            }
+			let prev = this.head;
+			if (!prev) {
+				this.head = new DataNode(e);
+				this.size++;
+			} else {
+				let i = 0;
+				while (i < index) {
+					prev = prev.next;
+					i++;
+				}
 
-            // const dataNode = new DataNode(e);
-            // dataNode.next = prev.next;
-            // prev.next = dataNode;
+				// const dataNode = new DataNode(e);
+				// dataNode.next = prev.next;
+				// prev.next = dataNode;
 
-            prev.next = new DataNode(e, prev.next);
-            this.size++;
-        }
+				prev.next = new DataNode(e, prev.next);
+				this.size++;
+			}
     }
 
-    // O(n)
-    remove(e: E): void {
-        if (!this.head) {
-            return;
-        }
+	// O(n)
+	remove(e: E): void {
+		if (!this.head) {
+			return;
+		}
 
-        if (this.head.data === e) {
-            this.head = null;
-            this.size--;
-            return;
-        }
+		if (Object.is(this.head.data, e)) {
+			this.head = null;
+			this.size--;
+			return;
+		}
 
-        let current = this.head;
-        let next = current.next;
+		let current = this.head;
+		let next = current.next;
 
-        while (next) {
-            if (next.data === e) {
-                // remove next
-                current.next =  next.next;
-                this.size--;
-            } else {
-                current = next.next;
-                next = current.next;
-            }
-        }
-    }
+		while (next) {
+			if (Object.is(next.data, e)) {
+				// remove next
+				current.next =  next.next;
+				this.size--;
+			} else {
+				current = next.next;
+				next = current.next;
+			}
+		}
+	}
 
-    toString(): string {
-        return JSON.stringify(this);
-    }
+	toString(): string {
+		return JSON.stringify(this);
+	}
 }
 
 const l = new LinkedList<string>();

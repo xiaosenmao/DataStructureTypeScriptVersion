@@ -1,12 +1,15 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["LinkedList"],{
 
-/***/ "./src/LinkedList/LinkedList.ts":
-/*!**************************************!*\
-  !*** ./src/LinkedList/LinkedList.ts ***!
-  \**************************************/
+/***/ "./src/LinkedList/DataNode.ts":
+/*!************************************!*\
+  !*** ./src/LinkedList/DataNode.ts ***!
+  \************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
 var DataNode = /** @class */ (function () {
     function DataNode(data, next) {
         if (data === void 0) { data = null; }
@@ -16,6 +19,22 @@ var DataNode = /** @class */ (function () {
     }
     return DataNode;
 }());
+exports.default = DataNode;
+
+
+/***/ }),
+
+/***/ "./src/LinkedList/LinkedList.ts":
+/*!**************************************!*\
+  !*** ./src/LinkedList/LinkedList.ts ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var DataNode_1 = __webpack_require__(/*! ./DataNode */ "./src/LinkedList/DataNode.ts");
 var LinkedList = /** @class */ (function () {
     function LinkedList() {
         this.head = null;
@@ -31,14 +50,14 @@ var LinkedList = /** @class */ (function () {
     LinkedList.prototype.addFirst = function (e) {
         var prev = this.head;
         if (!prev) {
-            this.head = new DataNode(e);
+            this.head = new DataNode_1.default(e);
             this.size++;
         }
         else {
             // const dataNode = new DataNode(e);
             // dataNode.next = prev;
             // this.head = dataNode;
-            this.head = new DataNode(e, prev);
+            this.head = new DataNode_1.default(e, prev);
             this.size++;
         }
     };
@@ -46,14 +65,14 @@ var LinkedList = /** @class */ (function () {
     LinkedList.prototype.addLast = function (e) {
         var current = this.head;
         if (!current) {
-            this.head = new DataNode(e);
+            this.head = new DataNode_1.default(e);
             this.size++;
         }
         else {
             while (current.next) {
                 current = current.next;
             }
-            current.next = new DataNode(e);
+            current.next = new DataNode_1.default(e);
             this.size++;
         }
     };
@@ -64,7 +83,7 @@ var LinkedList = /** @class */ (function () {
         }
         var prev = this.head;
         if (!prev) {
-            this.head = new DataNode(e);
+            this.head = new DataNode_1.default(e);
             this.size++;
         }
         else {
@@ -76,7 +95,7 @@ var LinkedList = /** @class */ (function () {
             // const dataNode = new DataNode(e);
             // dataNode.next = prev.next;
             // prev.next = dataNode;
-            prev.next = new DataNode(e, prev.next);
+            prev.next = new DataNode_1.default(e, prev.next);
             this.size++;
         }
     };
@@ -85,7 +104,7 @@ var LinkedList = /** @class */ (function () {
         if (!this.head) {
             return;
         }
-        if (this.head.data === e) {
+        if (Object.is(this.head.data, e)) {
             this.head = null;
             this.size--;
             return;
@@ -93,7 +112,7 @@ var LinkedList = /** @class */ (function () {
         var current = this.head;
         var next = current.next;
         while (next) {
-            if (next.data === e) {
+            if (Object.is(next.data, e)) {
                 // remove next
                 current.next = next.next;
                 this.size--;
