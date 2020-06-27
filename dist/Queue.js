@@ -5,8 +5,12 @@
   !*** ./src/Queue/Queue.ts ***!
   \****************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Queue = void 0;
 var Queue = /** @class */ (function () {
     function Queue() {
         this.queue = new Array();
@@ -31,6 +35,7 @@ var Queue = /** @class */ (function () {
     };
     return Queue;
 }());
+exports.Queue = Queue;
 var q1 = new Queue();
 q1.enQueue(0);
 q1.enQueue(1);

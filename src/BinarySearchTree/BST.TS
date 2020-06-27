@@ -1,5 +1,6 @@
 import Comparable from './Comparable';
 import { Stack } from '../Stack/Stack';
+import { Queue } from '../Queue/Queue';
 
 class Node<E extends Comparable<E>> {
   e: E;
@@ -27,22 +28,22 @@ class BST<E extends Comparable<E>> {
 
   //  添加元素e
   add(e: E): void {
-    this.root = this.relativeAdd(this.root, e);
+    this.root = this._add(this.root, e);
   }
 
   // 向以node为根的二分搜索树中出插入元素e，使用递归。
   // 返回插入新节点的根
-  private relativeAdd(node: Node<E>, e: E): Node<E> {
+  private _add(node: Node<E>, e: E): Node<E> {
     if (node === null) {
       this.size++;
       return new Node(e);
     }
 
     if (e.comparableTo(node.left.e) < 0) {
-      node.left = this.relativeAdd(node.left, e);
+      node.left = this._add(node.left, e);
     }
     else if (e.comparableTo(node.right.e) > 0) {
-      node.right = this.relativeAdd(node.right, e);
+      node.right = this._add(node.right, e);
     }
 
     return node;
@@ -85,11 +86,11 @@ class BST<E extends Comparable<E>> {
 
   //  看二分搜索树中是否包含元素e
   contains(e: E): boolean {
-    return this.relativeContains(this.root, e);
+    return this._contains(this.root, e);
   }
 
   //  看以node为根的二分搜索树中是否包含元素e, 递归算法
-  private relativeContains(node: Node<E>, e: E): boolean {
+  private _contains(node: Node<E>, e: E): boolean {
     if (node === null) {
       return false;
     }
@@ -98,27 +99,27 @@ class BST<E extends Comparable<E>> {
       return true;
     }
     else if (e.comparableTo(node.e) < 0) {
-      return this.relativeContains(node.left, e);
+      return this._contains(node.left, e);
     }
     else {
-      return this.relativeContains(node.right, e);
+      return this._contains(node.right, e);
     }
   }
 
   //  二分搜索树的前序遍历
   preOrder(): void {
-    this.relativePreOrder(this.root);
+    this._preOrder(this.root);
   }
 
   //  前序遍历以node为根的二分搜索树，递归算法
-  private relativePreOrder(node: Node<E>): void {
+  private _preOrder(node: Node<E>): void {
     if (node == null) return;
 
     // do stuff
     console.log(node.e);
 
-    this.relativePreOrder(node.left);
-    this.relativePreOrder(node.right);
+    this._preOrder(node.left);
+    this._preOrder(node.right);
   }
 
   // 二分搜索树的前序遍历,非递归
@@ -142,32 +143,107 @@ class BST<E extends Comparable<E>> {
 
   //  二分搜索树的中序遍历
   inOrder(): void {
-    this.relativeInOrder(this.root);
+    this._inOrder(this.root);
   }
 
   //  中序遍历以node为根的二分搜索树，递归算法
-  private relativeInOrder(node: Node<E>): void {
+  private _inOrder(node: Node<E>): void {
     if (node == null) return;
 
-    this.relativeInOrder(node.left);
+    this._inOrder(node.left);
     // do stuff
     console.log(node.e);
-    this.relativeInOrder(node.right);
+    this._inOrder(node.right);
   }
 
   //  二分搜索树的后序遍历
   postOrder(): void {
-    this.relativePostOrder(this.root);
+    this._postOrder(this.root);
   }
 
   //  后序遍历以node为根的二分搜索树，递归算法
-  private relativePostOrder(node: Node<E>): void {
+  private _postOrder(node: Node<E>): void {
     if (node == null) return;
 
-    this.relativePostOrder(node.left);
-    this.relativePostOrder(node.right);
+    this._postOrder(node.left);
+    this._postOrder(node.right);
     // do stuff
     console.log(node.e);
+  }
+
+  //  按层级遍历（广度优先）
+  levelOrder(): void {
+    const q = new Queue<Node<E>>();
+    q.enQueue(this.root);
+
+    while (!q.isEmpty()) {
+      const cur = q.deQueue();
+      // do stuff
+      console.log(cur.e);
+
+      if (cur.left !== null) {
+        q.enQueue(cur.left);
+      }
+      if (!cur.right !== null) {
+        q.enQueue(cur.right);
+      }
+    }
+  }
+
+  // 查找二分搜索树中的最小值, 使用递归
+  minimum(): E {
+    if (this.size === 0) {
+        throw new Error("BST is empty");
+    }
+    return this._minimum(this.root).e;
+  }
+
+  private _minimum(node: Node<E>): Node<E> {
+    if (node.left === null) {
+      return node;
+    }
+    return this._minimum(node.left);
+  }
+
+  // 查找二分搜索树中的最大值, 使用递归
+  maximum(): E {
+    if (this.size === 0) {
+        throw new Error("BST is empty");
+    }
+    return this._maximum(this.root).e;
+  }
+
+  private _maximum(node: Node<E>): Node<E> {
+    if (node.right === null) {
+      return node;
+    }
+    return this._maximum(node.right);
+  }
+
+  // 查找二分搜索树中的最小值, 使用非递归
+  findMin(): E {
+    if (this.size === 0) {
+      throw new Error("BST is empty");
+    }
+
+    let cur = this.root;
+    while (cur.left !== null) {
+      cur = cur.left;
+    }
+    return cur.e;
+  }
+
+  // 查找二分搜索树中的最大值, 使用非递归
+  findMax(): E {
+    if (this.size === 0) {
+      throw new Error("BST is empty");
+    }
+
+    let cur = this.root;
+    while (cur.right !== null) {
+      cur = cur.right;
+    }
+    return cur.e;
   }
 
   // add(e: E): void {
@@ -202,3 +278,8 @@ class BST<E extends Comparable<E>> {
   //   }
   // }
 }
+
+// 前序，中序，后序 都是深度优先， 可以使用递归完成
+
+// 层序遍历是广度优先，使用非递归实现，借助队列完成;
+// 广度优先遍历的意义：1.更快的找到问题的解  2.常用于算法设计中——最短路径

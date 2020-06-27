@@ -1,4 +1,4 @@
-interface Queue<E> {
+interface IQueue<E> {
 	getSize(): number;
 	isEmpty(): boolean;
 	enQueue(e: E): void;
@@ -7,7 +7,7 @@ interface Queue<E> {
 	clear(): void;
 }
 
-class Queue<E> implements Queue<E> {
+export class Queue<E> implements IQueue<E> {
 
 	private queue: Array<E> = new Array();
 
