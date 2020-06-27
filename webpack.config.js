@@ -8,7 +8,8 @@ module.exports = {
 		Stack: path.resolve(__dirname, './src/Stack/Stack.ts'),
 		Queue: path.resolve(__dirname, './src/Queue/Queue.ts'),
 		LinkedList: path.resolve(__dirname, './src/LinkedList/LinkedList.ts'),
-		LinkedListEnhance: path.resolve(__dirname, './src/LinkedList/LinkedListEnhance.ts')
+		LinkedListEnhance: path.resolve(__dirname, './src/LinkedList/LinkedListEnhance.ts'),
+		BinarySearchTree: path.resolve(__dirname, './src/BinarySearchTree/BST.ts')
 	},
 	output: {
 		filename: '[name].js',
