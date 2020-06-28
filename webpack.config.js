@@ -11,7 +11,9 @@ module.exports = {
 		LinkedListEnhance: path.resolve(__dirname, './src/LinkedList/LinkedListEnhance.ts'),
 		BinarySearchTree: path.resolve(__dirname, './src/BinarySearchTree/BST.ts'),
 		BSTSet: path.resolve(__dirname, './src/Set/BSTSet.ts'),
-		LinkedListSet: path.resolve(__dirname, './src/Set/LinkedListSet.ts')
+		LinkedListSet: path.resolve(__dirname, './src/Set/LinkedListSet.ts'),
+		LinkedListMap: path.resolve(__dirname, './src/Map/LinkedListMap.ts'),
+		BSTMap: path.resolve(__dirname, './src/Map/BSTMap.ts')
 	},
 	output: {
 		filename: '[name].js',
