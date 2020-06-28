@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["BinarySearchTree"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["BSTSet"],{
 
 /***/ "./src/BinarySearchTree/BST.ts":
 /*!*************************************!*\
@@ -400,6 +400,42 @@ console.log(q1);
 
 /***/ }),
 
+/***/ "./src/Set/BSTSet.ts":
+/*!***************************!*\
+  !*** ./src/Set/BSTSet.ts ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var BST_1 = __webpack_require__(/*! ../BinarySearchTree/BST */ "./src/BinarySearchTree/BST.ts");
+var BSTSet = /** @class */ (function () {
+    function BSTSet() {
+        this.bst = new BST_1.BST();
+    }
+    BSTSet.prototype.getSize = function () {
+        return this.bst.getSize();
+    };
+    BSTSet.prototype.isEmpty = function () {
+        return this.bst.isEmpty();
+    };
+    BSTSet.prototype.add = function (e) {
+        this.bst.add(e);
+    };
+    BSTSet.prototype.remove = function (e) {
+        this.bst.remove(e);
+    };
+    BSTSet.prototype.contains = function (e) {
+        return this.bst.contains(e);
+    };
+    return BSTSet;
+}());
+
+
+/***/ }),
+
 /***/ "./src/Stack/Stack.ts":
 /*!****************************!*\
   !*** ./src/Stack/Stack.ts ***!
@@ -516,5 +552,5 @@ function fact(n) {
 
 /***/ })
 
-},[["./src/BinarySearchTree/BST.ts","runtime"]]]);
-//# sourceMappingURL=BinarySearchTree.js.map
+},[["./src/Set/BSTSet.ts","runtime"]]]);
+//# sourceMappingURL=BSTSet.js.map

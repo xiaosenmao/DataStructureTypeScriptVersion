@@ -1,6 +1,6 @@
 import DataNode from './DataNode';
 
-class LinkedListEnhance<E> {
+export class LinkedListEnhance<E> {
   dummyHead : DataNode<E>;
   size: number;
 

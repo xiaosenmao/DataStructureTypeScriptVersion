@@ -14,7 +14,7 @@ class Node<E extends Comparable<E>> {
   }
 }
 
-class BST<E extends Comparable<E>> {
+export class BST<E extends Comparable<E>> {
   private root: Node<E> = null;
   private size: number = 0;
 
@@ -104,6 +104,24 @@ class BST<E extends Comparable<E>> {
     else {
       return this._contains(node.right, e);
     }
+  }
+
+  //  看二分搜索树中是否包含元素e,使用循环
+  has(e: E): boolean {
+    let cur = this.root;
+    while (cur !== null) {
+      if (e.comparableTo(cur.e) === 0) {
+        return true;
+      }
+      else if (e.comparableTo(cur.e) < 0) {
+        cur = cur.left;
+      }
+      else if (e.comparableTo(cur.e) > 0) {
+        cur = cur.right;
+      }
+    }
+
+    return false;
   }
 
   //  二分搜索树的前序遍历
@@ -244,6 +262,95 @@ class BST<E extends Comparable<E>> {
       cur = cur.right;
     }
     return cur.e;
+  }
+
+  // 从二分搜索树中删除最小值所在的节点，返回最小值
+  removeMin(): E {
+    const ret = this.minimum();
+    this.root = this._removeMin(this.root);
+    return ret;
+  }
+
+  // 删除以node为根的二分搜索树中的最小节点
+  // 返回删除节点后新的二分搜索树的根
+  private _removeMin(node: Node<E>): Node<E> {
+    if (node.left === null) {
+      const rightNode = node.right;
+      node.right = null;
+      this.size--;
+      return rightNode;
+    }
+
+    node.left = this._removeMin(node.left);
+    return node;
+  }
+
+  // 从二分搜索树中删除最大值所在的节点，返回最大值
+  removeMax(): E {
+    const ret = this.maximum();
+    this.root = this._removeMax(this.root);
+    return ret;
+  }
+
+  private _removeMax(node: Node<E>): Node<E> {
+    if (node.right === null) {
+      const leftNode = node.left;
+      node.left = null;
+      this.size--;
+      return leftNode;
+    }
+
+    node.right = this._removeMax(node.right);
+    return node;
+  }
+
+  // 从二分搜索树中删除元素为e的节点
+  remove(e: E): void {
+    this.root = this._remove(this.root, e);
+  }
+
+  // 删除以node为根节点的二分搜索树中值为e的节点，递归算法
+  // 返回删除节点后的二分搜索树的根
+  private _remove(node: Node<E>, e: E): Node<E> {
+    if (node === null) {
+      return null;
+    }
+
+    if (e.comparableTo(node.e) < 0) {
+      node.left = this._remove(node.left, e);
+      return node;
+    }
+    else if (e.comparableTo(node.e) > 0) {
+      node.right = this._remove(node.right, e);
+      return node;
+    }
+    else { // e === node.e
+      // 待删除的节点左子树为空
+      if (node.left === null) {
+        const rightNode = node.right;
+        node.right = null;
+        this.size--;
+        return rightNode;
+      }
+
+      // 待删除的节点右子树为空
+      if (node.right === null) {
+        const leftNode = node.left;
+        node.left = null;
+        this.size--;
+        return leftNode;
+      }
+
+      // 待删除的节点左，右子树均不为空
+      // 找到比待删除节点大的所有节点中最小的节点，即 待删除节点右子树的最小节点(待删除节点的后继)
+      // 使用这个节点顶替待删除节点的位置
+      const successor = this._minimum(node.right);
+      successor.right = this._removeMin(node.right);
+      successor.left = node.left;
+
+      node.left = node.right = null;
+      return successor;
+    }
   }
 
   // add(e: E): void {

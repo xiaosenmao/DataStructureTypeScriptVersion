@@ -9,7 +9,9 @@ module.exports = {
 		Queue: path.resolve(__dirname, './src/Queue/Queue.ts'),
 		LinkedList: path.resolve(__dirname, './src/LinkedList/LinkedList.ts'),
 		LinkedListEnhance: path.resolve(__dirname, './src/LinkedList/LinkedListEnhance.ts'),
-		BinarySearchTree: path.resolve(__dirname, './src/BinarySearchTree/BST.ts')
+		BinarySearchTree: path.resolve(__dirname, './src/BinarySearchTree/BST.ts'),
+		BSTSet: path.resolve(__dirname, './src/Set/BSTSet.ts'),
+		LinkedListSet: path.resolve(__dirname, './src/Set/LinkedListSet.ts')
 	},
 	output: {
 		filename: '[name].js',
