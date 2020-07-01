@@ -1,3 +1,3 @@
 export default interface Comparable<T> {
-	comparableTo(val: T): number;
+	comparableTo: (val: T) => number;
 }

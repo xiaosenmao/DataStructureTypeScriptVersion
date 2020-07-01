@@ -13,7 +13,8 @@ module.exports = {
 		BSTSet: path.resolve(__dirname, './src/Set/BSTSet.ts'),
 		LinkedListSet: path.resolve(__dirname, './src/Set/LinkedListSet.ts'),
 		LinkedListMap: path.resolve(__dirname, './src/Map/LinkedListMap.ts'),
-		BSTMap: path.resolve(__dirname, './src/Map/BSTMap.ts')
+		BSTMap: path.resolve(__dirname, './src/Map/BSTMap.ts'),
+		MaxHeap: path.resolve(__dirname, './src/MaxHeap/MaxHeap.ts')
 	},
 	output: {
 		filename: '[name].js',
