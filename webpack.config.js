@@ -1,24 +1,24 @@
-const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { normalizeAbsolutePath } = require('./utils');
 
 module.exports = {
 	mode: 'development',
 	devtool: 'source-map',
 	entry: {
-		Stack: path.resolve(__dirname, './src/Stack/Stack.ts'),
-		Queue: path.resolve(__dirname, './src/Queue/Queue.ts'),
-		LinkedList: path.resolve(__dirname, './src/LinkedList/LinkedList.ts'),
-		LinkedListEnhance: path.resolve(__dirname, './src/LinkedList/LinkedListEnhance.ts'),
-		BinarySearchTree: path.resolve(__dirname, './src/BinarySearchTree/BST.ts'),
-		BSTSet: path.resolve(__dirname, './src/Set/BSTSet.ts'),
-		LinkedListSet: path.resolve(__dirname, './src/Set/LinkedListSet.ts'),
-		LinkedListMap: path.resolve(__dirname, './src/Map/LinkedListMap.ts'),
-		BSTMap: path.resolve(__dirname, './src/Map/BSTMap.ts'),
-		MaxHeap: path.resolve(__dirname, './src/MaxHeap/MaxHeap.ts')
+		Stack: normalizeAbsolutePath('./src/Stack/Stack.ts'),
+		Queue: normalizeAbsolutePath('./src/Queue/Queue.ts'),
+		LinkedList: normalizeAbsolutePath('./src/LinkedList/LinkedList.ts'),
+		LinkedListEnhance: normalizeAbsolutePath('./src/LinkedList/LinkedListEnhance.ts'),
+		BinarySearchTree: normalizeAbsolutePath('./src/BinarySearchTree/BST.ts'),
+		BSTSet: normalizeAbsolutePath('./src/Set/BSTSet.ts'),
+		LinkedListSet: normalizeAbsolutePath('./src/Set/LinkedListSet.ts'),
+		LinkedListMap: normalizeAbsolutePath('./src/Map/LinkedListMap.ts'),
+		BSTMap: normalizeAbsolutePath('./src/Map/BSTMap.ts'),
+		MaxHeap: normalizeAbsolutePath('./src/MaxHeap/MaxHeap.ts')
 	},
 	output: {
 		filename: '[name].js',
-		path: path.resolve(__dirname, './dist')
+		path: normalizeAbsolutePath('./dist')
 	},
 	module: {
 		rules: [
