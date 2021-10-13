@@ -5,6 +5,7 @@ module.exports = {
 	mode: 'development',
 	devtool: 'source-map',
 	entry: {
+		MyArray: normalizeAbsolutePath('./src/MyArray/MyArray.ts'),
 		Stack: normalizeAbsolutePath('./src/Stack/Stack.ts'),
 		Queue: normalizeAbsolutePath('./src/Queue/Queue.ts'),
 		LinkedList: normalizeAbsolutePath('./src/LinkedList/LinkedList.ts'),
