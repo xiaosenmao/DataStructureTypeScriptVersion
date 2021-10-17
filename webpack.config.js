@@ -8,6 +8,7 @@ module.exports = {
 		MyArray: normalizeAbsolutePath('./src/MyArray/MyArray.ts'),
 		Stack: normalizeAbsolutePath('./src/Stack/Stack.ts'),
 		Queue: normalizeAbsolutePath('./src/Queue/Queue.ts'),
+		LoopQueue: normalizeAbsolutePath('./src/Queue/LoopQueue.ts'),
 		LinkedList: normalizeAbsolutePath('./src/LinkedList/LinkedList.ts'),
 		LinkedListEnhance: normalizeAbsolutePath('./src/LinkedList/LinkedListEnhance.ts'),
 		BinarySearchTree: normalizeAbsolutePath('./src/BinarySearchTree/BST.ts'),

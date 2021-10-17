@@ -1,5 +1,5 @@
 import Comparable from '../BinarySearchTree/Comparable';
-import { IQueue } from '../Queue/Queue';
+import IQueue from '../Queue/IQueue';
 import { MaxHeap } from './MaxHeap';
 
 export class PriorityQueue<E extends Comparable<E>> implements IQueue<E> {
