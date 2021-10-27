@@ -26,7 +26,7 @@ export class BST<E extends Comparable<E>> {
     return this.size === 0;
   }
 
-  //  添加元素e
+  // 添加元素e
   add(e: E): void {
     this.root = this._add(this.root, e);
   }

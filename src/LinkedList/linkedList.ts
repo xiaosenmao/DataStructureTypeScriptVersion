@@ -94,10 +94,12 @@ class LinkedList<E> {
 			if (Object.is(next.data, e)) {
 				// remove next
 				current.next =  next.next;
+				next.next = null;
 				this.size--;
+				break;
 			} else {
-				current = next.next;
-				next = current.next;
+				current = current.next;
+				next = next.next;
 			}
 		}
 	}

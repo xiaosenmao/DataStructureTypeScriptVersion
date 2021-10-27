@@ -5,7 +5,11 @@
 	"scripts": {
 		"build": "webpack"
 	},
-	"keywords": ["data", "structure", "typescript"],
+	"keywords": [
+		"data",
+		"structure",
+		"typescript"
+	],
 	"author": "xiaosenmao",
 	"license": "ISC",
 	"devDependencies": {

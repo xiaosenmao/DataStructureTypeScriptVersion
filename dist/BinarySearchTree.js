@@ -60,7 +60,7 @@ var BST = /** @class */ (function () {
     BST.prototype.isEmpty = function () {
         return this.size === 0;
     };
-    //  添加元素e
+    // 添加元素e
     BST.prototype.add = function (e) {
         this.root = this._add(this.root, e);
     };
