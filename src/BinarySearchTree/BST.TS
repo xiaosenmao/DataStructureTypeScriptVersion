@@ -1,5 +1,5 @@
 import Comparable from './Comparable';
-import { Stack } from '../Stack/Stack';
+import { Stack } from '../Stack/ArrayStack';
 import { Queue } from '../Queue/Queue';
 
 class Node<E extends Comparable<E>> {

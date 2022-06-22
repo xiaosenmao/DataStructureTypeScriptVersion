@@ -11,7 +11,7 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BST = void 0;
-var Stack_1 = __webpack_require__(/*! ../Stack/Stack */ "./src/Stack/Stack.ts");
+var ArrayStack_1 = __webpack_require__(/*! ../Stack/ArrayStack */ "./src/Stack/ArrayStack.ts");
 var Queue_1 = __webpack_require__(/*! ../Queue/Queue */ "./src/Queue/Queue.ts");
 var Node = /** @class */ (function () {
     function Node(e) {
@@ -162,7 +162,7 @@ var BST = /** @class */ (function () {
     };
     // 二分搜索树的前序遍历,非递归
     BST.prototype.preOrderNR = function () {
-        var stack = new Stack_1.Stack();
+        var stack = new ArrayStack_1.Stack();
         stack.push(this.root);
         while (!stack.isEmpty()) {
             // do stuff.
@@ -400,10 +400,10 @@ console.log(q1);
 
 /***/ }),
 
-/***/ "./src/Stack/Stack.ts":
-/*!****************************!*\
-  !*** ./src/Stack/Stack.ts ***!
-  \****************************/
+/***/ "./src/Stack/ArrayStack.ts":
+/*!*********************************!*\
+  !*** ./src/Stack/ArrayStack.ts ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -468,6 +468,7 @@ var Solution = /** @class */ (function () {
     }
     Solution.prototype.isValid = function (s) {
         var stack = new Stack();
+        // 栈顶元素反映了在嵌套的层次关系中，最近的需要匹配的元素
         for (var i = 0; i < s.length; i++) {
             var temp = s[i];
             if (this.leftChar.includes(temp)) {

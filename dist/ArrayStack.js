@@ -1,9 +1,9 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["Stack"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ArrayStack"],{
 
-/***/ "./src/Stack/Stack.ts":
-/*!****************************!*\
-  !*** ./src/Stack/Stack.ts ***!
-  \****************************/
+/***/ "./src/Stack/ArrayStack.ts":
+/*!*********************************!*\
+  !*** ./src/Stack/ArrayStack.ts ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -68,6 +68,7 @@ var Solution = /** @class */ (function () {
     }
     Solution.prototype.isValid = function (s) {
         var stack = new Stack();
+        // 栈顶元素反映了在嵌套的层次关系中，最近的需要匹配的元素
         for (var i = 0; i < s.length; i++) {
             var temp = s[i];
             if (this.leftChar.includes(temp)) {
@@ -116,5 +117,5 @@ function fact(n) {
 
 /***/ })
 
-},[["./src/Stack/Stack.ts","runtime"]]]);
-//# sourceMappingURL=Stack.js.map
+},[["./src/Stack/ArrayStack.ts","runtime"]]]);
+//# sourceMappingURL=ArrayStack.js.map

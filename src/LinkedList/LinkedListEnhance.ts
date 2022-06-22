@@ -1,8 +1,8 @@
 import DataNode from './DataNode';
 
 export class LinkedListEnhance<E> {
-  dummyHead : DataNode<E>;
-  size: number;
+  private dummyHead : DataNode<E>;
+  private size: number;
 
   constructor() {
 		this.dummyHead  = new DataNode(null, null);
@@ -15,6 +15,27 @@ export class LinkedListEnhance<E> {
 
   isEmpty(): boolean {
 		return this.size === 0;
+	}
+
+	get(index: number): E {
+		if (index < 0 || index > this.size) {
+			throw new Error('Get failed. Illegal index.');
+		}
+
+		let prev = this.dummyHead;
+		for (let i = 0; i < index; i++) {
+			prev = prev.next;
+		}
+
+		return prev.data;
+	}
+
+	getFirst(): E {
+		return this.get(0)
+	}
+
+	getLast(): E {
+		return this.get(this.size);
 	}
 
 	insert(index: number, e: E): void {  // O(n)
@@ -41,7 +62,7 @@ export class LinkedListEnhance<E> {
 
 	remove(index: number): E {  // O(n)
 		if (index < 0 || index >= this.size) {
-			throw new Error('Insert failed. Illegal index.');
+			throw new Error('Remove failed. Illegal index.');
 		}
 
 		let prev = this.dummyHead;

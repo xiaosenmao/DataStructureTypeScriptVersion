@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["LinkedListEnhance"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["LinkedListStack"],{
 
 /***/ "./src/LinkedList/DataNode.ts":
 /*!************************************!*\
@@ -134,7 +134,48 @@ var LinkedListEnhance = /** @class */ (function () {
 exports.LinkedListEnhance = LinkedListEnhance;
 
 
+/***/ }),
+
+/***/ "./src/Stack/LinkedListStack.ts":
+/*!**************************************!*\
+  !*** ./src/Stack/LinkedListStack.ts ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LinkedListStack = void 0;
+var LinkedListEnhance_1 = __webpack_require__(/*! ../LinkedList/LinkedListEnhance */ "./src/LinkedList/LinkedListEnhance.ts");
+var LinkedListStack = /** @class */ (function () {
+    function LinkedListStack() {
+        this.items = new LinkedListEnhance_1.LinkedListEnhance();
+    }
+    LinkedListStack.prototype.size = function () {
+        return this.items.getSize();
+    };
+    LinkedListStack.prototype.isEmpty = function () {
+        return this.items.isEmpty();
+    };
+    LinkedListStack.prototype.push = function (e) {
+        this.items.addFirst(e);
+    };
+    LinkedListStack.prototype.pop = function () {
+        return this.items.removeFirst();
+    };
+    LinkedListStack.prototype.peek = function () {
+        return this.items.getFirst();
+    };
+    LinkedListStack.prototype.clear = function () {
+        this.items = new LinkedListEnhance_1.LinkedListEnhance();
+    };
+    return LinkedListStack;
+}());
+exports.LinkedListStack = LinkedListStack;
+
+
 /***/ })
 
-},[["./src/LinkedList/LinkedListEnhance.ts","runtime"]]]);
-//# sourceMappingURL=LinkedListEnhance.js.map
+},[["./src/Stack/LinkedListStack.ts","runtime"]]]);
+//# sourceMappingURL=LinkedListStack.js.map

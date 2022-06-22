@@ -61,7 +61,7 @@ export class LoopQueue<E> implements IQueue<E> {
 		return this.queue[this.front];
 	}
 
-	resize(newCapacity: number): void {
+	private resize(newCapacity: number): void {
 		const newQueue = new Array<E>(newCapacity + 1);
 
 		for (let i = 0; i < this.size; i++) {

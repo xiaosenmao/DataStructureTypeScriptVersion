@@ -47,6 +47,22 @@ var LinkedListEnhance = /** @class */ (function () {
     LinkedListEnhance.prototype.isEmpty = function () {
         return this.size === 0;
     };
+    LinkedListEnhance.prototype.get = function (index) {
+        if (index < 0 || index > this.size) {
+            throw new Error('Get failed. Illegal index.');
+        }
+        var prev = this.dummyHead;
+        for (var i = 0; i < index; i++) {
+            prev = prev.next;
+        }
+        return prev.data;
+    };
+    LinkedListEnhance.prototype.getFirst = function () {
+        return this.get(0);
+    };
+    LinkedListEnhance.prototype.getLast = function () {
+        return this.get(this.size);
+    };
     LinkedListEnhance.prototype.insert = function (index, e) {
         if (index < 0 || index > this.size) {
             throw new Error('Insert failed. Illegal index.');
@@ -66,7 +82,7 @@ var LinkedListEnhance = /** @class */ (function () {
     };
     LinkedListEnhance.prototype.remove = function (index) {
         if (index < 0 || index >= this.size) {
-            throw new Error('Insert failed. Illegal index.');
+            throw new Error('Remove failed. Illegal index.');
         }
         var prev = this.dummyHead;
         for (var i = 0; i < index; i++) {

@@ -1,8 +1,8 @@
 import DataNode from './DataNode';
 
 class LinkedList<E> {
-	head: DataNode<E>;
-    size: number;
+	private head: DataNode<E>;
+	private size: number;
 
 	constructor() {
 		this.head = null;
@@ -49,31 +49,31 @@ class LinkedList<E> {
 		}
 	}
 
-    // O(n/2) ~= O(n)
-    insert(index: number, e: E): void {
-			if (index < 0 || index > this.size) {
-				throw new Error('Insert failed. Illegal index!');
+	// O(n/2) ~= O(n)
+	insert(index: number, e: E): void {
+		if (index < 0 || index > this.size) {
+			throw new Error('Insert failed. Illegal index!');
+		}
+
+		let prev = this.head;
+		if (!prev) {
+			this.head = new DataNode(e);
+			this.size++;
+		} else {
+			let i = 0;
+			while (i < index) {
+				prev = prev.next;
+				i++;
 			}
 
-			let prev = this.head;
-			if (!prev) {
-				this.head = new DataNode(e);
-				this.size++;
-			} else {
-				let i = 0;
-				while (i < index) {
-					prev = prev.next;
-					i++;
-				}
+			// const dataNode = new DataNode(e);
+			// dataNode.next = prev.next;
+			// prev.next = dataNode;
 
-				// const dataNode = new DataNode(e);
-				// dataNode.next = prev.next;
-				// prev.next = dataNode;
-
-				prev.next = new DataNode(e, prev.next);
-				this.size++;
-			}
-    }
+			prev.next = new DataNode(e, prev.next);
+			this.size++;
+		}
+	}
 
 	// O(n)
 	remove(e: E): void {
