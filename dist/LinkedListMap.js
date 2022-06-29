@@ -1,15 +1,14 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["LinkedListMap"],{
+"use strict";
+(self["webpackChunkdata_structure_typescript_version"] = self["webpackChunkdata_structure_typescript_version"] || []).push([["LinkedListMap"],{
 
 /***/ "./src/Map/LinkedListMap.ts":
 /*!**********************************!*\
   !*** ./src/Map/LinkedListMap.ts ***!
   \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 var Node = /** @class */ (function () {
     function Node(key, value, next) {
         if (key === void 0) { key = null; }
@@ -21,7 +20,7 @@ var Node = /** @class */ (function () {
     }
     Node.prototype.toString = function () {
         var _a, _b;
-        return ((_a = this.key) === null || _a === void 0 ? void 0 : _a.toString()) + " : " + ((_b = this.value) === null || _b === void 0 ? void 0 : _b.toString());
+        return "".concat((_a = this.key) === null || _a === void 0 ? void 0 : _a.toString(), " : ").concat((_b = this.value) === null || _b === void 0 ? void 0 : _b.toString());
     };
     return Node;
 }());
@@ -72,7 +71,7 @@ var LinkedListMap = /** @class */ (function () {
     LinkedListMap.prototype.set = function (key, value) {
         var node = this.getNode(key);
         if (node === null) {
-            throw new Error(key + " doesn't exist!");
+            throw new Error("".concat(key, " doesn't exist!"));
         }
         else {
             node.value = value;
@@ -102,5 +101,10 @@ var LinkedListMap = /** @class */ (function () {
 
 /***/ })
 
-},[["./src/Map/LinkedListMap.ts","runtime"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__("./src/Map/LinkedListMap.ts"));
+/******/ }
+]);
 //# sourceMappingURL=LinkedListMap.js.map

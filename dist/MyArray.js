@@ -1,11 +1,10 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["MyArray"],{
+(self["webpackChunkdata_structure_typescript_version"] = self["webpackChunkdata_structure_typescript_version"] || []).push([["MyArray"],{
 
 /***/ "./src/MyArray/MyArray.ts":
 /*!********************************!*\
   !*** ./src/MyArray/MyArray.ts ***!
   \********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (() => {
 
 var MyArray = /** @class */ (function () {
     function MyArray(capacity) {
@@ -158,5 +157,10 @@ test();
 
 /***/ })
 
-},[["./src/MyArray/MyArray.ts","runtime"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__("./src/MyArray/MyArray.ts"));
+/******/ }
+]);
 //# sourceMappingURL=MyArray.js.map

@@ -1,15 +1,14 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["Queue"],{
+"use strict";
+(self["webpackChunkdata_structure_typescript_version"] = self["webpackChunkdata_structure_typescript_version"] || []).push([["Queue"],{
 
 /***/ "./src/Queue/Queue.ts":
 /*!****************************!*\
   !*** ./src/Queue/Queue.ts ***!
   \****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Queue = void 0;
 var Queue = /** @class */ (function () {
     function Queue() {
@@ -47,5 +46,10 @@ console.log(q1);
 
 /***/ })
 
-},[["./src/Queue/Queue.ts","runtime"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__("./src/Queue/Queue.ts"));
+/******/ }
+]);
 //# sourceMappingURL=Queue.js.map

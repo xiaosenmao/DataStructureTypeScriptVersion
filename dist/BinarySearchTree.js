@@ -1,15 +1,14 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["BinarySearchTree"],{
+"use strict";
+(self["webpackChunkdata_structure_typescript_version"] = self["webpackChunkdata_structure_typescript_version"] || []).push([["BinarySearchTree"],{
 
 /***/ "./src/BinarySearchTree/BST.ts":
 /*!*************************************!*\
   !*** ./src/BinarySearchTree/BST.ts ***!
   \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.BST = void 0;
 var ArrayStack_1 = __webpack_require__(/*! ../Stack/ArrayStack */ "./src/Stack/ArrayStack.ts");
 var Queue_1 = __webpack_require__(/*! ../Queue/Queue */ "./src/Queue/Queue.ts");
@@ -357,12 +356,10 @@ exports.BST = BST;
 /*!****************************!*\
   !*** ./src/Queue/Queue.ts ***!
   \****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Queue = void 0;
 var Queue = /** @class */ (function () {
     function Queue() {
@@ -404,12 +401,10 @@ console.log(q1);
 /*!*********************************!*\
   !*** ./src/Stack/ArrayStack.ts ***!
   \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Stack = void 0;
 var Stack = /** @class */ (function () {
     function Stack() {
@@ -517,5 +512,10 @@ function fact(n) {
 
 /***/ })
 
-},[["./src/BinarySearchTree/BST.ts","runtime"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__("./src/BinarySearchTree/BST.ts"));
+/******/ }
+]);
 //# sourceMappingURL=BinarySearchTree.js.map

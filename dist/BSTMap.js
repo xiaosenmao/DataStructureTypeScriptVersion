@@ -1,15 +1,14 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["BSTMap"],{
+"use strict";
+(self["webpackChunkdata_structure_typescript_version"] = self["webpackChunkdata_structure_typescript_version"] || []).push([["BSTMap"],{
 
 /***/ "./src/Map/BSTMap.ts":
 /*!***************************!*\
   !*** ./src/Map/BSTMap.ts ***!
   \***************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 var Node = /** @class */ (function () {
     function Node(key, value, left, right) {
         if (key === void 0) { key = null; }
@@ -23,7 +22,7 @@ var Node = /** @class */ (function () {
     }
     Node.prototype.toString = function () {
         var _a, _b;
-        return ((_a = this.key) === null || _a === void 0 ? void 0 : _a.toString()) + " : " + ((_b = this.value) === null || _b === void 0 ? void 0 : _b.toString());
+        return "".concat((_a = this.key) === null || _a === void 0 ? void 0 : _a.toString(), " : ").concat((_b = this.value) === null || _b === void 0 ? void 0 : _b.toString());
     };
     return Node;
 }());
@@ -136,7 +135,7 @@ var BSTMap = /** @class */ (function () {
     BSTMap.prototype.set = function (key, newValue) {
         var node = this.getNode(this.root, key);
         if (node === null)
-            throw new Error(key + " doesn't exists!");
+            throw new Error("".concat(key, " doesn't exists!"));
         node.value = newValue;
     };
     BSTMap.prototype.remove = function (key) {
@@ -211,5 +210,10 @@ var BSTMap = /** @class */ (function () {
 
 /***/ })
 
-},[["./src/Map/BSTMap.ts","runtime"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__("./src/Map/BSTMap.ts"));
+/******/ }
+]);
 //# sourceMappingURL=BSTMap.js.map

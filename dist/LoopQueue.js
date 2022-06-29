@@ -1,15 +1,14 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["LoopQueue"],{
+"use strict";
+(self["webpackChunkdata_structure_typescript_version"] = self["webpackChunkdata_structure_typescript_version"] || []).push([["LoopQueue"],{
 
 /***/ "./src/Queue/LoopQueue.ts":
 /*!********************************!*\
   !*** ./src/Queue/LoopQueue.ts ***!
   \********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.LoopQueue = void 0;
 //              front             tail
 // [null,  null,  2,  3,  4,  5,  null,  null,  null,  null,  null]
@@ -74,5 +73,10 @@ exports.LoopQueue = LoopQueue;
 
 /***/ })
 
-},[["./src/Queue/LoopQueue.ts","runtime"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__("./src/Queue/LoopQueue.ts"));
+/******/ }
+]);
 //# sourceMappingURL=LoopQueue.js.map

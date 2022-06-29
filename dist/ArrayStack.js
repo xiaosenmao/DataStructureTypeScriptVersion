@@ -1,15 +1,14 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["ArrayStack"],{
+"use strict";
+(self["webpackChunkdata_structure_typescript_version"] = self["webpackChunkdata_structure_typescript_version"] || []).push([["ArrayStack"],{
 
 /***/ "./src/Stack/ArrayStack.ts":
 /*!*********************************!*\
   !*** ./src/Stack/ArrayStack.ts ***!
   \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Stack = void 0;
 var Stack = /** @class */ (function () {
     function Stack() {
@@ -117,5 +116,10 @@ function fact(n) {
 
 /***/ })
 
-},[["./src/Stack/ArrayStack.ts","runtime"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__("./src/Stack/ArrayStack.ts"));
+/******/ }
+]);
 //# sourceMappingURL=ArrayStack.js.map

@@ -1,15 +1,14 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["LinkedList"],{
+"use strict";
+(self["webpackChunkdata_structure_typescript_version"] = self["webpackChunkdata_structure_typescript_version"] || []).push([["LinkedList"],{
 
 /***/ "./src/LinkedList/DataNode.ts":
 /*!************************************!*\
   !*** ./src/LinkedList/DataNode.ts ***!
   \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 var DataNode = /** @class */ (function () {
     function DataNode(data, next) {
         if (data === void 0) { data = null; }
@@ -19,7 +18,7 @@ var DataNode = /** @class */ (function () {
     }
     return DataNode;
 }());
-exports.default = DataNode;
+exports["default"] = DataNode;
 
 
 /***/ }),
@@ -28,12 +27,10 @@ exports.default = DataNode;
 /*!**************************************!*\
   !*** ./src/LinkedList/LinkedList.ts ***!
   \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-"use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 var DataNode_1 = __webpack_require__(/*! ./DataNode */ "./src/LinkedList/DataNode.ts");
 var LinkedList = /** @class */ (function () {
     function LinkedList() {
@@ -145,5 +142,10 @@ console.log('l: ', l, 'l.getSize(): ', l.getSize());
 
 /***/ })
 
-},[["./src/LinkedList/LinkedList.ts","runtime"]]]);
+},
+/******/ __webpack_require__ => { // webpackRuntimeModules
+/******/ var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+/******/ var __webpack_exports__ = (__webpack_exec__("./src/LinkedList/LinkedList.ts"));
+/******/ }
+]);
 //# sourceMappingURL=LinkedList.js.map
