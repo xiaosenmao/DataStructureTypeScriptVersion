@@ -174,6 +174,26 @@ export class BST<E extends Comparable<E>> {
     this._inOrder(node.right);
   }
 
+  // 二分搜索树的中序遍历,非递归
+  inOrderNR(): void {
+    let stack: Stack<Node<E>> = new Stack();
+    let cur = this.root;
+
+    while (cur !== null || !stack.isEmpty()) {
+      while (cur !== null) {
+        stack.push(cur);
+        cur = cur.left;
+      }
+
+      if (!stack.isEmpty()) {
+        cur = stack.pop();
+        // do stuff.
+        console.log(cur.e);
+        cur = cur.right;
+      }
+    }
+  }
+
   //  二分搜索树的后序遍历
   postOrder(): void {
     this._postOrder(this.root);
@@ -187,6 +207,24 @@ export class BST<E extends Comparable<E>> {
     this._postOrder(node.right);
     // do stuff
     console.log(node.e);
+  }
+
+  // 二分搜索树的后序遍历,非递归
+  postOrderNR(): void {
+    let stack: Stack<Node<E>> = new Stack();
+    let cur = this.root;
+
+    while (cur !== null || !stack.isEmpty()) {
+      while (cur !== null) {
+        stack.push(cur);
+        cur = cur.left;
+      }
+
+      if (!stack.isEmpty()) {
+        //
+      }
+    }
+
   }
 
   //  按层级遍历（广度优先）
