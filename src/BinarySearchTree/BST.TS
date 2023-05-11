@@ -211,20 +211,28 @@ export class BST<E extends Comparable<E>> {
 
   // 二分搜索树的后序遍历,非递归
   postOrderNR(): void {
-    let stack: Stack<Node<E>> = new Stack();
+    const stack: Stack<Node<E>> = new Stack();
     let cur = this.root;
+    let lastVisitedNode: Node<E> | null = null;
 
     while (cur !== null || !stack.isEmpty()) {
-      while (cur !== null) {
+      // / 遍历到左子树叶子节点
+      if (cur !== null) {
         stack.push(cur);
         cur = cur.left;
-      }
-
-      if (!stack.isEmpty()) {
-        //
+      } else {
+        const peekTopNode: Node<E> = stack.peek()
+        if (peekTopNode.right && peekTopNode.right !== lastVisitedNode) {
+          // 如果右子树存在并且还没有被访问过，就遍历右子树
+          cur = peekTopNode.right
+        } else {
+          // 如果没有右子树或者右子树被访问过，就输出本节点
+          console.log(peekTopNode.e)
+          lastVisitedNode = peekTopNode
+          stack.pop()
+        }
       }
     }
-
   }
 
   //  按层级遍历（广度优先）
